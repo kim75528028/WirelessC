@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-m=0
-std=2
-min=3
-max=20
+m=0 #평균
+std=2 #표준편차
+min=3 #최소(적분)
+max=20 #최대(적분)
 dx=0.001
 x=np.arange(min, max, dx)
 g1=1/(np.sqrt(2*np.pi)*std)
