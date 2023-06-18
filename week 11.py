@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-N_sc = 200
-max_snr = 10
+N_sc = 128
+max_snr = 13
 ber = []
 
 for snr_db in range (0,max_snr):
@@ -33,6 +33,12 @@ for snr_db in range (0,max_snr):
     tmp_ber = total_error/(N_sc*2)
     ber.append(tmp_ber)
 
-snr = np.arange(0,max_snr)
-plt.semilogy(snr,ber)
+plt.subplot(2,2,1)
+plt.plot(np.abs(qpsk)**2)
+plt.subplot(2,2,2)
+plt.plot(np.abs(ofdm)**2)
+plt.subplot(2,2,3)
+plt.scatter(ofdm.real,ofdm.imag)
+plt.subplot(2,2,4)
+plt.scatter(rcv_sig.real,rcv_sig.imag)
 plt.show()

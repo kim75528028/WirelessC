@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import ConvCodec as cc
 
-data_size = 1024 # 1024개의 data bit
-max_snr = range(1,10) # 최대 SNR 10db까지 실험
+data_size = 64 # 1024개의 data bit
+max_snr = range(1,12) # 최대 SNR 10db까지 실험
 ber = []
 for snr_db in max_snr:
     data = np.random.randint(0, 2, data_size) # 0과 1 데이터 1024개 (1024,)
@@ -14,6 +14,7 @@ for snr_db in max_snr:
 
     qpsk_sym = (real_signal + 1j * imag_signal) / np.sqrt(2)
     ofdm_sym = np.fft.ifft(qpsk_sym) * np.sqrt(data_size) # 평균 파워 1이 되도록
+
 
     noise_std = 10 ** (-snr_db / 20)
     noise = np.random.randn(data_size+3) * noise_std / np.sqrt(2)

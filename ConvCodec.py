@@ -10,8 +10,8 @@ def Encoder(data):
         shiftReg[2] = shiftReg[1]
         shiftReg[1] = shiftReg[0]
         shiftReg[0] = data[i]
-        encoded_bit[0, i] = np.logical_xor(np.logical_xor(shiftReg[0], shiftReg[1]), shiftReg[2])
-        encoded_bit[1, i] = np.logical_xor(shiftReg[0], shiftReg[2])
+        encoded_bit[0, i] = np.logical_xor(shiftReg[1], shiftReg[2])
+        encoded_bit[1, i] = np.logical_xor(np.logical_xor(shiftReg[0], shiftReg[1]), shiftReg[2])
 
     return encoded_bit
 
